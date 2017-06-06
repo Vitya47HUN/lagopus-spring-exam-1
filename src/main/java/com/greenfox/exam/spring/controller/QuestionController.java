@@ -1,6 +1,7 @@
 package com.greenfox.exam.spring.controller;
 
 import com.greenfox.exam.spring.model.AnswerList;
+import com.greenfox.exam.spring.model.Question;
 import com.greenfox.exam.spring.model.QuestionList;
 import com.greenfox.exam.spring.repository.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,22 +10,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class QuestionController {
+  QuestionRepository questionRepo;
+  QuestionList questionList;
 
   @Autowired
-  QuestionRepository questionRepo;
-  QuestionList questionList = new QuestionList();
-//  Question questionOne = new Question("What is the color code of Green Fox?");
-//  Question questionTwo = new Question("When was Green Fox founded?(yyyy.mm.)");
-//  Question questionThree = new Question("What type of dog Barbi has?");
-//  Question questionFour = new Question("When did your course start?");
-//  Question questionFive = new Question("What is HerrNorbert's favourite color?");
-
+  public QuestionController(QuestionRepository questionRepo){
+    this.questionList = new QuestionList();
+    this.questionRepo = questionRepo;
+  }
 
   @RequestMapping(path = "/questions", method = RequestMethod.GET)
   public Object getQuestions(){
-    questionList.setQuestions(questionRepo.findAll());
+    questionList.setQuestions((List<Question>) questionRepo.findAll());
     return questionList;
   }
 

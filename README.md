@@ -106,15 +106,19 @@ Your task is to create a RESTful quiz application with full of greenfox question
 
 Please define it with your own words. We are expecting at least 3 distinct ideas that you write here:
 
+-Abstract classes are defining characteristics of an object type,telling what an object is.
+-An abstract class can contain codes, methods, functions.
+-If I am creating something for objects that are related in some way I use an abstract class.
+-Enables you to define methods that can access and modify the state of the object to which they belong.
 
 ### Analyzing URL
 Please name the parts of the URL below.
 [<img src="assets/URLanalysis.png" alt="parts of URL" />](assets/URLanalysis.png?raw=true)
 
-1:  
-2:  
-3:  
-4:  
-5:  
-6:  
-7:  
+1 - PROTOCOL
+2 - SUBDOMAIN
+3 - DOMAIN
+4 - PORT
+5 - PATH
+6 - PARAMETER START MARK (?)
+7 - PARAMETER
