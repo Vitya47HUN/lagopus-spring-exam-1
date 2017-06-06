@@ -1,6 +1,6 @@
 package com.greenfox.exam.spring.controller;
 
-import com.greenfox.exam.spring.model.Answer;
+import com.greenfox.exam.spring.model.AnswerList;
 import com.greenfox.exam.spring.model.QuestionList;
 import com.greenfox.exam.spring.repository.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,9 +28,8 @@ public class QuestionController {
     return questionList;
   }
 
-  @RequestMapping(path = "/answer", method = RequestMethod.POST)
-  public Object giveAnswers(@RequestBody Answer answer){
-
+  @RequestMapping(path = "/answers", method = RequestMethod.POST)
+  public Object giveAnswers(@RequestBody AnswerList answerList){
     return questionList;
   }
 
