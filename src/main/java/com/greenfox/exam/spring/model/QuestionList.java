@@ -3,8 +3,6 @@ package com.greenfox.exam.spring.model;
 
 import org.springframework.stereotype.Component;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.ArrayList;
 
@@ -12,7 +10,6 @@ import java.util.ArrayList;
 public class QuestionList {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
   private long id;
   private Iterable<Question> questions;
 
@@ -22,6 +19,7 @@ public class QuestionList {
 
   public QuestionList(){
     this.questions = new ArrayList<>();
+    this.id = 1;
   }
 
   public long getId() {
@@ -32,11 +30,11 @@ public class QuestionList {
     this.id = id;
   }
 
-  public Iterable<Question> getQuestionss() {
+  public Iterable<Question> getQuestions() {
     return questions;
   }
 
-  public void setQuestionss(Iterable<Question> questionss) {
-    this.questions = questionss;
+  public void setQuestions(Iterable<Question> questions) {
+    this.questions = questions;
   }
 }
