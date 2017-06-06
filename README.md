@@ -41,14 +41,14 @@ Your task is to create a RESTful quiz application with full of greenfox question
 {
   "id": 1,
   "questions":[
-    {"id": 1, "question": "What is the color code of Green Fox?"},
-    {"id": 2, "question": "When was Green Fox founded?(yyyy.mm.)"},
+    {"id": 1, "questionList": "What is the color code of Green Fox?"},
+    {"id": 2, "questionList": "When was Green Fox founded?(yyyy.mm.)"},
     ...
    ]
 }
 ```
 
-- Below you can find some more question and answer example, please add them all to the database, to one table:
+- Below you can find some more questionList and answer example, please add them all to the database, to one table:
     - When did your course start? (yyyy.mm.dd)(2017.03.13)
     - What type of dog Barbi has? (Whippet)
     - What is HerrNorbert's favourite color? (Green)

@@ -14,10 +14,10 @@ public class QuestionList {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private long id;
-  private List<Question> question;
+  private List<Question> questionList;
 
-  public QuestionList(List<Question> question) {
-    this.question = question;
+  public QuestionList(List<Question> questionList) {
+    this.questionList = questionList;
   }
 
   public QuestionList(){
@@ -31,11 +31,15 @@ public class QuestionList {
     this.id = id;
   }
 
-  public List<Question> getQuestion() {
-    return question;
+  public List<Question> getQuestionList() {
+    return questionList;
   }
 
-  public void setQuestion(List<Question> question) {
-    this.question = question;
+  public void setQuestionList(List<Question> questionList) {
+    this.questionList = questionList;
+  }
+
+  public void addQuestion(Question question){
+    questionList.add(question);
   }
 }
