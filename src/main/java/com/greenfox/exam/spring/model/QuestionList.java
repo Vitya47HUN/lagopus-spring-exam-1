@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.util.List;
+import java.util.ArrayList;
 
 @Component
 public class QuestionList {
@@ -14,13 +14,14 @@ public class QuestionList {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private long id;
-  private List<Question> questionList;
+  private Iterable<Question> questions;
 
-  public QuestionList(List<Question> questionList) {
-    this.questionList = questionList;
+  public QuestionList(Iterable<Question> questions) {
+    this.questions = questions;
   }
 
   public QuestionList(){
+    this.questions = new ArrayList<>();
   }
 
   public long getId() {
@@ -31,15 +32,11 @@ public class QuestionList {
     this.id = id;
   }
 
-  public List<Question> getQuestionList() {
-    return questionList;
+  public Iterable<Question> getQuestionss() {
+    return questions;
   }
 
-  public void setQuestionList(List<Question> questionList) {
-    this.questionList = questionList;
-  }
-
-  public void addQuestion(Question question){
-    questionList.add(question);
+  public void setQuestionss(Iterable<Question> questionss) {
+    this.questions = questionss;
   }
 }
