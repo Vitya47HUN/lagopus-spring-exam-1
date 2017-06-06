@@ -15,13 +15,17 @@ import java.util.List;
 @RestController
 public class QuestionController {
 
-  @Autowired
   QuestionRepository questionRepo;
   QuestionList questionList;
 
+  @Autowired
+  public QuestionController(QuestionRepository questionRepo) {
+    this.questionRepo = questionRepo;
+    this.questionList = new QuestionList();
+  }
 
   @RequestMapping(path = "/questions", method = RequestMethod.GET)
-  public Object getQuestions(){
+  public QuestionList getQuestions(){
     questionRepo.save(new Question("What is the color code of Green Fox?"));
     questionRepo.save(new Question("When was Green Fox founded?(yyyy.mm.)"));
     questionRepo.save(new Question("When did your course start?"));
@@ -42,7 +46,6 @@ public class QuestionController {
 //      System.out.println(questionList.getQuestions(result));
 //    }
 //    Collections.shuffle(Arrays.asList(questionList));
-    System.out.println("this:" + questionRepo);
     return questionList;
   }
 
