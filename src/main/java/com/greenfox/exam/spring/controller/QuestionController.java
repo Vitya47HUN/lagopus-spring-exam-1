@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -26,6 +27,7 @@ public class QuestionController {
   @RequestMapping(path = "/questions", method = RequestMethod.GET)
   public Object getQuestions(){
     questionList.setQuestions((List<Question>) questionRepo.findAll());
+    Collections.shuffle(questionList);
     return questionList;
   }
 
