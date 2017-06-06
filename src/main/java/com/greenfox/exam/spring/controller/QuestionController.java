@@ -15,17 +15,14 @@ import java.util.List;
 @RestController
 public class QuestionController {
 
-  QuestionRepository questionRepo;
-  QuestionList questionList;
-
   @Autowired
-  public QuestionController(QuestionRepository questionRepo) {
-    this.questionRepo = questionRepo;
-    this.questionList = new QuestionList();
-  }
+  QuestionRepository questionRepo;
+//  @Autowired
+//  QuestionList questionList = new QuestionList();
 
   @RequestMapping(path = "/questions", method = RequestMethod.GET)
   public QuestionList getQuestions(){
+    QuestionList questionList = new QuestionList();
     questionRepo.save(new Question("What is the color code of Green Fox?"));
     questionRepo.save(new Question("When was Green Fox founded?(yyyy.mm.)"));
     questionRepo.save(new Question("When did your course start?"));

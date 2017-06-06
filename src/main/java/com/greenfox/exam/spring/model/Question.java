@@ -9,12 +9,11 @@ public class Question {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private long id;
-  private String question;
+  String question;
 
   public Question(String question) {
     this.question = question;
   }
-
 
   public long getId() {
     return id;

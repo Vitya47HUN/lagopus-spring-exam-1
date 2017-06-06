@@ -4,7 +4,6 @@ import javax.persistence.Id;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class QuestionList {
 
   @Id
@@ -35,6 +34,5 @@ public class QuestionList {
   public void setQuestions(List<Question> questions) {
     this.questions = questions;
   }
-
 
 }
