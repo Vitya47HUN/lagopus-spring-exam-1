@@ -14,14 +14,11 @@ import java.util.List;
 
 @RestController
 public class QuestionController {
+
+  @Autowired
   QuestionRepository questionRepo;
   QuestionList questionList;
 
-  @Autowired
-  public QuestionController(QuestionRepository questionRepo){
-    this.questionList = new QuestionList();
-    this.questionRepo = questionRepo;
-  }
 
   @RequestMapping(path = "/questions", method = RequestMethod.GET)
   public Object getQuestions(){
@@ -35,6 +32,7 @@ public class QuestionController {
     questionRepo.save(new Question("What was the name of the first Green Fox class?"));
     questionRepo.save(new Question("How many likes do we have on facebook?"));
     questionRepo.save(new Question("What is Tojas's horoscope?"));
+
     questionList.setQuestions((List<Question>) questionRepo.findAll());
 //    for (int i = 0; i < questionRepo.count();i++){
 //      Random r = new Random();
@@ -44,6 +42,7 @@ public class QuestionController {
 //      System.out.println(questionList.getQuestions(result));
 //    }
 //    Collections.shuffle(Arrays.asList(questionList));
+    System.out.println("this:" + questionRepo);
     return questionList;
   }
 

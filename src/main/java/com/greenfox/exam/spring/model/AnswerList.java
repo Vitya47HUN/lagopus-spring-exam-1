@@ -1,11 +1,9 @@
 package com.greenfox.exam.spring.model;
 
-import org.springframework.stereotype.Component;
-
 import javax.persistence.Id;
 import java.util.List;
 
-@Component
+
 public class AnswerList {
 
   @Id
