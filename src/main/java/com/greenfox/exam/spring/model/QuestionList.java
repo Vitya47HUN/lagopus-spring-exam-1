@@ -31,7 +31,7 @@ public class QuestionList {
     this.id = id;
   }
 
-  public Iterable<Question> getQuestions() {
+  public List<Question> getQuestions() {
     return questions;
   }
 
