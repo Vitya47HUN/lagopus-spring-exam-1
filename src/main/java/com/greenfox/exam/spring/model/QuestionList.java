@@ -31,8 +31,8 @@ public class QuestionList {
     this.id = id;
   }
 
-  public List<Question> getQuestions() {
-    return questions;
+  public Question getQuestions(Integer i) {
+    return questions.get(i);
   }
 
   public void setQuestions(List<Question> questions) {
