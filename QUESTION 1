@@ -1,0 +1,6 @@
+in what cases would you choose to use an abstract class over an interface?
+
+-Abstract classes are defining characteristics of an object type,telling what an object is.
+-An abstract class can contain codes, methods, functions.
+-If I am creating something for objects that are related in some way I use an abstract class.
+-Enables you to define methods that can access and modify the state of the object to which they belong.
