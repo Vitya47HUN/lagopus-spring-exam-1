@@ -1,5 +1,7 @@
 package com.greenfox.exam.spring.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,11 +13,23 @@ public class Question {
   private long id;
   String question;
 
+  public String getAnswer() {
+    return answer;
+  }
+
+  public void setAnswer(String answer) {
+    this.answer = answer;
+  }
+
+  @JsonIgnore
+  String answer;
+
   public Question(){
   }
 
-  public Question(String question) {
+  public Question(String question,String answer) {
     this.question = question;
+    this.answer = answer;
   }
 
   public long getId() {

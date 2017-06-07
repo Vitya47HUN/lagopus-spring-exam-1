@@ -26,11 +26,21 @@ public class QuestionController {
   @RequestMapping(path = "/questions", method = RequestMethod.GET)
   public QuestionList getQuestions() {
     generator.generateRandomQuestion(questionList);
+
+//    questionList.setQuestions((List<Question>) questionRepo.findAll());
+
     return questionList;
   }
 
   @RequestMapping(path = "/answers", method = RequestMethod.POST)
   public Object giveAnswers(@RequestBody AnswerList answerList) {
-    return answerList;
+    for(int i =0;i < questionList.getQuestions().size();i++){
+      if (questionList.getQuestions().get(i).getAnswer().equals(answerList.getAnswers().get(i).getAnswer())){
+        System.out.println("OK");
+      } else {
+        System.out.println("NOT OK");
+      }
+    }
+    return questionList;
   }
 }

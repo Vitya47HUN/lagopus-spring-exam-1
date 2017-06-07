@@ -23,7 +23,7 @@ public class AnswerList {
     this.id = id;
   }
 
-  public Iterable<Answer> getAnswers() {
+  public List<Answer> getAnswers() {
     return answers;
   }
 

@@ -4,7 +4,6 @@ import com.greenfox.exam.spring.model.QuestionList;
 import com.greenfox.exam.spring.repository.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.Random;
 
 @Service
