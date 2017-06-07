@@ -1,9 +1,12 @@
 package com.greenfox.exam.spring.model;
 
+import org.springframework.stereotype.Component;
+
 import javax.persistence.Id;
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class QuestionList {
 
   @Id
@@ -27,12 +30,16 @@ public class QuestionList {
     this.id = id;
   }
 
-  public Question getQuestions(Integer i) {
-    return questions.get(i);
+  public List<Question> getQuestions() {
+    return questions;
   }
 
   public void setQuestions(List<Question> questions) {
     this.questions = questions;
+  }
+
+  public void addQuestion(Question question){
+    questions.add(question);
   }
 
 }

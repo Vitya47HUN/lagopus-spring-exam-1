@@ -10,19 +10,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import java.util.Random;
 
 @RestController
 public class QuestionController {
 
   @Autowired
   QuestionRepository questionRepo;
-//  @Autowired
-//  QuestionList questionList = new QuestionList();
+
+  @Autowired
+  QuestionList questionList;
 
   @RequestMapping(path = "/questions", method = RequestMethod.GET)
-  public QuestionList getQuestions(){
-    QuestionList questionList = new QuestionList();
+  public QuestionList getQuestions() {
+
     questionRepo.save(new Question("What is the color code of Green Fox?"));
     questionRepo.save(new Question("When was Green Fox founded?(yyyy.mm.)"));
     questionRepo.save(new Question("When did your course start?"));
@@ -34,15 +35,23 @@ public class QuestionController {
     questionRepo.save(new Question("How many likes do we have on facebook?"));
     questionRepo.save(new Question("What is Tojas's horoscope?"));
 
-    questionList.setQuestions((List<Question>) questionRepo.findAll());
-//    for (int i = 0; i < questionRepo.count();i++){
-//      Random r = new Random();
-//      int Low = 1;
-//      int High = 5;
-//      int result = r.nextInt(High-Low) + Low;
-//      System.out.println(questionList.getQuestions(result));
-//    }
-//    Collections.shuffle(Arrays.asList(questionList));
+    for (int i = 0; i < 5; i++) {
+      if (questionList.getQuestions().size() == 5) {
+        return questionList;
+      } else {
+        long x = 1L;
+        long y = 10L;
+        Random r = new Random();
+        long number = x + ((long) (r.nextDouble() * (y - x)));
+        if (questionList.getQuestions().contains(questionRepo.findOne(number))) {
+          r = new Random();
+          number = x + ((long) (r.nextDouble() * (y - x)));
+          questionList.addQuestion(questionRepo.findOne(number));
+        } else {
+          questionList.addQuestion(questionRepo.findOne(number));
+        }
+      }
+    }
     return questionList;
   }
 
@@ -50,5 +59,4 @@ public class QuestionController {
   public Object giveAnswers(@RequestBody AnswerList answerList){
     return answerList;
   }
-
 }

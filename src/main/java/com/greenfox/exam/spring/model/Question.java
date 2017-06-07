@@ -11,6 +11,9 @@ public class Question {
   private long id;
   String question;
 
+  public Question(){
+  }
+
   public Question(String question) {
     this.question = question;
   }
