@@ -22,10 +22,10 @@ public class QuestionController {
   @Autowired
   QuestionRandomizer generator;
 
+
   @RequestMapping(path = "/questions", method = RequestMethod.GET)
   public QuestionList getQuestions() {
     generator.generateRandomQuestion(questionList);
-
     return questionList;
   }
 
